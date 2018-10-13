@@ -51,10 +51,12 @@ RUN echo 'http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositor
     rsync \
     musl \
     && apk --update --no-cache add tar
+RUN apk add mariadb && /usr/bin/mysql_secure_installation
+
 RUN rm -rf /var/cache/apk/*
 
 ENV TERM="xterm" \
-    DB_HOST="172.17.0.1" \
+    DB_HOST="127.0.0.1" \
     DB_NAME="" \
     DB_USER=""\
     DB_PASS=""
