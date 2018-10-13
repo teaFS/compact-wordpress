@@ -1,3 +1,5 @@
+##### This is a fork of etopian/alpine-php-wordpress, this Docer image is meant to be a fast, simple and light solution for setting up wordpress.
+
 ##### This image is being maintained. Fork it and change it fit your needs. Upgrade your site using the upgrade strategy on wordpressdocker.com
 
 Full documentation for this project can be found here: http://www.wordpressdocker.com/
