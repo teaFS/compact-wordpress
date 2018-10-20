@@ -5,13 +5,16 @@ LABEL   devoply.type="site" \
         devoply.cms="wordpress" \
         devoply.framework="wordpress" \
         devoply.language="php7" \
-        devoply.require="mariadb etopian/nginx-proxy" \
-        devoply.recommend="redis" \
+        devoply.require="" \
+        devoply.recommend="" \
         devoply.description="WordPress on Nginx and PHP-FPM with WP-CLI." \
         devoply.name="WordPress" \
         devoply.params="docker run -d --name {container_name} -e VIRTUAL_HOST={virtual_hosts} -v /data/sites/{domain_name}:/DATA etopian/alpine-php7-wordpress"
 
 
+# FIX: "WARNING: This apk-tools is OLD! Some packages might not function properly"
+# https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+# 
 
 RUN echo 'http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories\
     && apk update \
@@ -51,7 +54,7 @@ RUN echo 'http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositor
     rsync \
     musl \
     && apk --update --no-cache add tar
-RUN apk add mariadb && /usr/bin/mysql_secure_installation
+#RUN apk add mariadb && /usr/bin/mysql_secure_installation
 
 RUN rm -rf /var/cache/apk/*
 

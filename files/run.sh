@@ -28,7 +28,7 @@ if [ ! -d /DATA/bin ] ; then
   mv wp-cli.phar /DATA/bin/wp-cli 
 fi
 
-cd '/usr' ; /usr/bin/mysqld_safe --nowatch --datadir='/var/lib/mysql'
+# cd '/usr' ; /usr/bin/mysqld_safe --nowatch --datadir='/var/lib/mysql'
 
 php-fpm7
 nginx
