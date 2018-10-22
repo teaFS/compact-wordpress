@@ -47,14 +47,13 @@ RUN echo 'http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositor
     php7-dom \
     php7-xmlreader \
     php7-simplexml \
-    mysql-client \
-    openssh-client \
+    mariadb \
     git \
     curl \
     rsync \
     musl \
     && apk --update --no-cache add tar
-#RUN apk add mariadb && /usr/bin/mysql_secure_installation
+RUN /usr/bin/mysql_secure_installation
 
 RUN rm -rf /var/cache/apk/*
 
@@ -75,6 +74,7 @@ RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php7/php.ini && \
 ADD files/nginx.conf /etc/nginx/
 ADD files/php-fpm.conf /etc/php7/
 ADD files/run.sh /
+ADD files/init_db.sh /
 ADD files/wp-config-devoply.php /usr/bin/wp-config-devoply
 RUN chmod +x /run.sh && chmod +x /usr/bin/wp-config-devoply
 
