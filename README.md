@@ -1,5 +1,3 @@
-# NOTE: This is work in progress!
-
 # Compact Wordpress Docker
 
 This is dependency free Docker image containing Wordpress setup and WP-CLI, to make it up and running, call: 
